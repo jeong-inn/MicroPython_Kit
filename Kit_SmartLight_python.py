@@ -33,16 +33,15 @@ def loop():
     else :
         led1.value(LOW)
         
-    print(" 초음파 센서  : ", distance)
-    print("-----------------------")
+    print("초음파 센서  : ", distance)
     
     if( cdsValue < 300 ) :
         led2.value(HIGH)
     else :
         led2.value(LOW)
     
-    print(" 조도 센서  : ", cdsValue)
-    print("-----------------------")
+    print("조도 센서  : ", cdsValue)
+    print("---------------------")
     
     time.sleep(0.1)                                
 
