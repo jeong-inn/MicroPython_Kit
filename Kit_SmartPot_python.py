@@ -5,8 +5,8 @@ from ETboard.lib.pin_define import *
 
 oled = oled_u8g2()
 moisture = ADC(Pin(A3))
-pin1 = Pin(D3)
-pin2 = Pin(D4)
+pin1 = Pin(D2) #D3, D4
+pin2 = Pin(D3)
 threshold = 1000
 
 
