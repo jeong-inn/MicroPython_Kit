@@ -53,7 +53,7 @@ def loop():
     if(RESET.value() == LOW) :
         print("reset count")
         count = 0
-        oled_show(count)    #reset 안됨
+        oled_show(count)
         print 
     
 if __name__ == "__main__":
