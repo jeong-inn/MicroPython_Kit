@@ -8,6 +8,7 @@ moisture = ADC(Pin(A3))
 pin1 = Pin(D2) #D3, D4
 pin2 = Pin(D3)
 threshold = 1000
+text = [0] * 255
 
 
 def setup() :
@@ -25,36 +26,28 @@ def display_oled() :
     moistureValue = 4095 - result
     
     print("토양 수분 센서값 : ", moistureValue)
-    print("-----------------")
-    time.sleep(0.1)
+    print("-------------------------")
+    time.sleep(1)
     
     if(moistureValue < threshold) :
         pin1.value(HIGH)
         pin2.value(LOW)
+    
     else :
         pin1.value(LOW)
         pin2.value(LOW)       
+
+    text = "moist : %d" %(moistureValue)
     
-    text[32] = "moist : "
-    value[32]
-    
-    str1 = str(moistureValue)
-    list1 = list(str1)
-    text = text + value
-    
+    oled.clear()
     oled.setLine(1, "* Smart POT *")
     oled.setLine(2, text)  
-    oled.setLine(3, "---------")
+    oled.setLine(3, "----------------")
     oled.display()
-    time.sleep(0.5)
-'''
-def setup_oled() :
-    SDA.init(Pin.IN)
-    SCL.init(Pin.IN)
-    
-    #SDA = 21;
-    #SCL = 22;
-'''    
+    time.sleep(1)
+
+
+
 if __name__ == "__main__" :
     setup()
     while True :
