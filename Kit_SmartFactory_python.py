@@ -9,14 +9,11 @@ TRIG = Pin(D9)
 ECHO = Pin(D8)
 
 count = 0
-#temp_buffer[255] = {0, }
 pre_time = 0
 
 def oled_show(count) :
-    #str(count)
-    #global temp_buffer = "count : " + count
     oled.setLine(1, "* Smart Factory *")
-    oled.setLine(2, count)
+    #oled.setLine(2, count)
     oled.setLine(3, "--------------")
     oled.display()
 
@@ -37,14 +34,13 @@ def loop():
     duration = time_pulse_us(ECHO, HIGH)
     distance = ((34 * duration) / 1000) / 2
     
-    print(distance)
+    print(f'{distance : .1f}', "cm")
     time.sleep(0.1)
     
     if( distance < 10 ) :
-        now_time = int(time.time()*1000.0)
+        now_time = int(round(time.time() * 1000))
         if(now_time - pre_time > 500) :
             count += 1
-            
             print("count : ", count)
             oled_show(count)
             time.sleep(1)
