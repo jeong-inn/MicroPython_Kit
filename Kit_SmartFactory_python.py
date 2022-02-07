@@ -16,7 +16,7 @@ def oled_show(count) :
     global temp_buffer
     temp_buffer = "count : %d" %(count)
     oled.setLine(1, "* Smart Factory *")
-    oled.setLine(2, temp_buffer) #oled에 count 표시 x
+    oled.setLine(2, temp_buffer) 
     oled.setLine(3, "--------------")
     oled.display()
     
@@ -45,6 +45,7 @@ def loop():
         if(now_time - pre_time > 500) :
             count += 1
             print("count : ", count)
+            oled.clear()
             oled_show(count)
             time.sleep(1)
             
