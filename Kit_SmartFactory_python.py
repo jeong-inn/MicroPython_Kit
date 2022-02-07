@@ -10,15 +10,18 @@ ECHO = Pin(D8)
 
 count = 0
 pre_time = 0
+temp_buffer = [0] * 255
 
 def oled_show(count) :
+    global temp_buffer
+    temp_buffer = "count : %d" %(count)
     oled.setLine(1, "* Smart Factory *")
-    #oled.setLine(2, count)
+    oled.setLine(2, temp_buffer)
     oled.setLine(3, "--------------")
     oled.display()
-
+    
 def setup():
-    RESET.init(Pin.OUT)
+    RESET.init(Pin.IN)
     TRIG.init(Pin.OUT)                         
     ECHO.init(Pin.IN)                         
 
