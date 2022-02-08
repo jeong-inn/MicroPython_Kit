@@ -23,8 +23,8 @@ text2 = [0] * 31
 
 # setup
 def setup() :
-    solar.atten(ADC.ATTN_11DB)                       # 태양광 발전량 측정 센서 입력값 설정
-    windturbine.atten(ADC.ATTN_11DB)                 # 풍력 발전량 측정 센서  입력값 설정
+    solar.atten(ADC.ATTN_11DB)                       # 태양광 발전량 측정 센서 입력 모드 설정
+    windturbine.atten(ADC.ATTN_11DB)                 # 풍력 발전량 측정 센서  입력 모드 설정
 
 #main loop    
 def loop() :
@@ -35,7 +35,7 @@ def display_oled() :
     solar_voltage_value = solar.read()               # 태양광 발전량 측정값 저장
     windturbine_voltage_value = windturbine.read()   # 풍력 발전량 측정값 저장
 
-    print("태양광 센서 : ", solar_voltage_value)
+    print("태양광 센서 : ", solar_voltage_value) 
     print("풍력 센서 : ", windturbine_voltage_value)
     print("-------------------");
 
