@@ -23,8 +23,8 @@ text2 = [0] * 31
 
 # setup
 def setup() :
-    solar.atten(ADC.ATTN_11DB)
-    windturbine.atten(ADC.ATTN_11DB) 
+    solar.atten(ADC.ATTN_11DB)                       # 태양광 발전량 측정 센서 입력값 설정
+    windturbine.atten(ADC.ATTN_11DB)                 # 풍력 발전량 측정 센서  입력값 설정
 
 #main loop    
 def loop() :
